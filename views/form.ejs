@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件上传</title>
+</head>
+<body>  
+    <%- include('partials/header.ejs') -%>
+    <h2>
+        <%= data.age %>
+    </h2>
+    <h2>hobbies</h2>
+    <ul>
+        
+        <% data.hobbies.forEach(function(item) { %>
+            <li>
+                <%= item %>
+            </li>
+            <% }) %>
+    </ul>
+    <!-- A.上传文件的表单需要设置enctype属性值为;enctype="multipart/form-data -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="text" name="text" /><br><br>
+        <!-- 上传多个文件 -->
+        <input type="file" name="logo" multiple /><br>
+        <br />
+        <input type="submit" value="上传文件" />
+    </form>
+</body>
+</html>
